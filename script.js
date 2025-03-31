@@ -1,7 +1,11 @@
-let btn=document.querySelectorAll(".box")
+let btn=document.querySelectorAll(".box");
+let reset=document.querySelector("#reset");
+let newGame=document.querySelector("#newGame");
+let msgContainer=document.querySelector(".message");
+let msg=document.querySelector("#outcome");
 
-count=0
-winningCoordinates=[
+let count=0
+const winningCoordinates=[
                     [0,1,2],
                     [3,4,5],
                     [6,7,8],
@@ -10,7 +14,27 @@ winningCoordinates=[
                     [2,5,8],
                     [0,4,8],
                     [2,4,6]
-                ]
+];
+const disableBtn = () => {
+    btn.forEach((button) => (button.disabled = true));
+};
+const showWinner=(winner)=>{
+    msg.innerText=`Congratulations,The Winner is ${winner}`;
+    msgContainer.classList.remove("hide");
+    disableBtn();
+}
+
+const resetGame=()=>{
+    btn.forEach((button) => {
+        button.innerText = "";
+        button.disabled = false;
+    });
+    count = 0;
+    msgContainer.classList.add("hide");
+}
+
+reset.addEventListener("click", resetGame);
+newGame.addEventListener("click", resetGame);
 
 btn.forEach((val)=>{
     val.addEventListener("click",()=>{
@@ -34,9 +58,10 @@ const winner = ()=>{
 
         if(index1Val!="" && index2Val!="" && index3Val!=""){
             if(index1Val===index2Val && index2Val===index3Val){
-                console.log("Winner");
-
+                showWinner(index1Val);
+                return;
             }
         }
     }
+
 }

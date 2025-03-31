@@ -4,7 +4,6 @@
     text-align: center;
 }
 body{
-    /* background-color: #0B192C; */
     background-color: #0C0950;
     text-align: center;
 }
@@ -36,4 +35,23 @@ body{
 }
 #reset{
     font-weight: bolder;
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+#newGame{
+    font-weight: bolder;
+    font-size: 1rem;
+    padding:1rem;
+    border-radius: 1rem;
+}
+#outcome{
+    font-size: 8vmin;
+    color: #F4CE14;
+}
+.message{
+    height:30vmin;
+}
+.hide{
+    display:none;
 }
